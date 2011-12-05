@@ -30,11 +30,11 @@ package
 			
 			//for STEP1
 			organism_vis = new OrganismVis();
-			addChild( organism_vis );
+			//addChild( organism_vis );
 			
 			//for STEP2
 			guess_table = new GuessTable();
-			//addChild( guess_table );
+			addChild( guess_table );
 			
 			//for STEP4 ranking
 			rank_table = new RankTable();
@@ -48,7 +48,7 @@ package
 		//{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}	
 		private function organism_present( eventData ):void 
 		{
-			event_debug.text = eventData.author + " identified " + eventData.second_organism.organism + "'s prescence as " + eventData.second_organism.present ;
+			event_debug.appendText("/n" + eventData.author + " identified " + eventData.second_organism.organism + "'s prescence as " + eventData.second_organism.present);
 			
 			if (eventData.first_organism.present == true){
 				//add new name	

@@ -9,23 +9,23 @@
 
 ---
 
-{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}
+{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":true},"second_organism":{"organism":"wasp","present":false}}}
 
-{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_b","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}
+{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_b","first_organism":{"organism":"monkey","present":true},"second_organism":{"organism":"wasp","present":false}}}
 
-{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_c","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}
+{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_c","first_organism":{"organism":"monkey","present":true},"second_organism":{"organism":"wasp","present":false}}}
 
-{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_d","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"true"}}}
+{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_d","first_organism":{"organism":"monkey","present":true},"second_organism":{"organism":"wasp","present":true}}}
 
 ---
 
-{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A1", "author":"joe", "location":"rainforest_a", "your_rainforest":"true", "explanation":"foo"}}
+{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A1", "author":"joe", "location":"rainforest_a", "your_rainforest":true, "explanation":"foo"}}
 
-{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_b", "your_rainforest":"false", "explanation":"foo"}}
+{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_b", "your_rainforest":false, "explanation":"foo"}}
 
-{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_c", "your_rainforest":"false", "explanation":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum."}}
+{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_c", "your_rainforest":false, "explanation":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum."}}
 
-{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A4", "author":"joe", "location":"rainforest_d", "your_rainforest":"true", "explanation":"foo"}}
+{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A4", "author":"joe", "location":"rainforest_d", "your_rainforest":true, "explanation":"foo"}}
 
 ---
 
