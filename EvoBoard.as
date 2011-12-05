@@ -38,11 +38,11 @@ package
 			
 			//for STEP4 ranking
 			rank_table = new RankTable();
-			addChild( rank_table );
+			//addChild( rank_table );
 			
 			//for STEP4 rationales
 			rationale_table = new RationaleTable();
-			//addChild( rationale_table );
+			addChild( rationale_table );
 			
 		}		
 		//{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}	
