@@ -34,11 +34,11 @@ package
 			
 			//for STEP2
 			guess_table = new GuessTable();
-			addChild( guess_table );
+			//addChild( guess_table );
 			
 			//for STEP4 ranking
 			rank_table = new RankTable();
-			//addChild( rank_table );
+			addChild( rank_table );
 			
 			//for STEP4 rationales
 			rationale_table = new RationaleTable();
