@@ -30,7 +30,7 @@ package
 			
 			//for STEP1
 			organism_vis = new OrganismVis();
-			//addChild( organism_vis );
+			addChild( organism_vis );
 			
 			//for STEP2
 			guess_table = new GuessTable();
@@ -42,7 +42,7 @@ package
 			
 			//for STEP4 rationales
 			rationale_table = new RationaleTable();
-			addChild( rationale_table );
+			//addChild( rationale_table );
 			
 		}		
 		//{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}	
