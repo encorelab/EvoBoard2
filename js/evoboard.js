@@ -17,12 +17,12 @@ var EvoBoard = {
     
     events: {
         sail: {
-            student_submitted_data: passSailEventToFlash1,
-            some_other_event: passSailEventToFlash1,
-	    organism_present: passSailEventToFlash1,
-	    rainforest_guess_submitted: passSailEventToFlash2,
-	    rankings_submitted: passSailEventToFlash4rank,
-	    rationale_submitted: passSailEventToFlash4rationale
+            student_submitted_data: passSailEventToFlash,
+            some_other_event: passSailEventToFlash,
+	    organism_present: passSailEventToFlash,
+	    rainforest_guess_submitted: passSailEventToFlash,
+	    rankings_submitted: passSailEventToFlash,
+	    rationale_submitted: passSailEventToFlash
         },
         
         initialized: function(ev) {
