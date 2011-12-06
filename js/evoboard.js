@@ -1,22 +1,43 @@
 /*jslint devel: true, regexp: true, browser: true, unparam: true, debug: true, sloppy: true, sub: true, es5: true, vars: true, evil: true, fragment: true, white: false */
 /*globals Sail, Rollcall, $, swfobject */
 
-var passSailEventToFlash = function(sev) {
-    var flashMovie = swfobject.getObjectById("evoboard");
+var passSailEventToFlash1 = function(sev) {
+    // var flashMovie = swfobject.getObjectById("evoboard");
+    var flashMovie = swfobject.getObjectById("evoboard_step1");
+    // var flashMovie2 = swfobject.getObjectById("evoboard_step2");
+    //var flashMovie3 = swfobject.getObjectById("evoboard_step4_rank");
+    // var flashMovie4 = swfobject.getObjectById("evoboard_step4_rationale");
     flashMovie.sevToFlash(sev.eventType, sev.payload || {});
 };
+
+var passSailEventToFlash2 = function(sev) {
+    var flashMovie = swfobject.getObjectById("evoboard_step2");
+    flashMovie.sevToFlash(sev.eventType, sev.payload || {});
+};
+
+var passSailEventToFlash4rank = function(sev) {
+    var flashMovie = swfobject.getObjectById("evoboard_step4_rank");
+    flashMovie.sevToFlash(sev.eventType, sev.payload || {});
+};
+
+var passSailEventToFlash4rationale = function(sev) {
+    var flashMovie = swfobject.getObjectById("evoboard_step4_rationale");
+    flashMovie.sevToFlash(sev.eventType, sev.payload || {});
+};
+
+
 
 var EvoBoard = {
     rollcallURL: '/rollcall',
     
     events: {
         sail: {
-            student_submitted_data: passSailEventToFlash,
-            some_other_event: passSailEventToFlash,
-	    organism_present: passSailEventToFlash,
-	    rainforest_guess_submitted: passSailEventToFlash,
-	    rankings_submitted: passSailEventToFlash,
-	    rationale_submitted: passSailEventToFlash
+            student_submitted_data: passSailEventToFlash1,
+            some_other_event: passSailEventToFlash1,
+	    organism_present: passSailEventToFlash1,
+	    rainforest_guess_submitted: passSailEventToFlash2,
+	    rankings_submitted: passSailEventToFlash4rank,
+	    rationale_submitted: passSailEventToFlash4rationale
         },
         
         initialized: function(ev) {
