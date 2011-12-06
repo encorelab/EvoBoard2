@@ -14,20 +14,28 @@ package
 	
 	public class EvoBoard extends Sprite
 	{
+		private var debugging:Boolean = true;
 		private var screen_height:Number = 768;
 		private var screen_width:Number = 1024;
-		private var event_debug:TextField;
-		private var organism_vis:OrganismVis;
-		private var guess_table:GuessTable;
-		private var rank_table:RankTable;
-		private var rationale_table:RationaleTable;
-				
+		public var event_debug:DebugText;
+		public var organism_vis:OrganismVis;
+		public var guess_table:GuessTable;
+		public var rank_table:RankTable;
+		public var rationale_table:RationaleTable;
+		
 		public function EvoBoard()
 		{
-			event_debug = event_debug_txt;
-			event_debug.text = "Waiting for event...";			
+			if ( debugging ){
+				event_debug = new DebugText();
+				addChild( event_debug ); 
+				event_debug.debug_txt.text = "Waiting for event...";
+			}
 			ExternalInterface.addCallback("sevToFlash", handleSev);
 			
+			setupEvoBoard();
+		}	
+		
+		public function setupEvoBoard():void{
 			//for STEP1
 			organism_vis = new OrganismVis();
 			addChild( organism_vis );
@@ -43,8 +51,7 @@ package
 			//for STEP4 rationales
 			rationale_table = new RationaleTable();
 			//addChild( rationale_table );
-			
-		}		
+		}
 		//{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}	
 		private function organism_present( eventData ):void 
 		{
