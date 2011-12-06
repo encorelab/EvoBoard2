@@ -1,30 +1,15 @@
 /*jslint devel: true, regexp: true, browser: true, unparam: true, debug: true, sloppy: true, sub: true, es5: true, vars: true, evil: true, fragment: true, white: false */
 /*globals Sail, Rollcall, $, swfobject */
 
-var passSailEventToFlash1 = function(sev) {
-    // var flashMovie = swfobject.getObjectById("evoboard");
-    var flashMovie = swfobject.getObjectById("evoboard_step1");
-    // var flashMovie2 = swfobject.getObjectById("evoboard_step2");
-    //var flashMovie3 = swfobject.getObjectById("evoboard_step4_rank");
-    // var flashMovie4 = swfobject.getObjectById("evoboard_step4_rationale");
+var passSailEventToFlash = function(sev) {
+    var flashMovie = swfobject.getObjectById("evoboard");
     flashMovie.sevToFlash(sev.eventType, sev.payload || {});
 };
 
-var passSailEventToFlash2 = function(sev) {
-    var flashMovie = swfobject.getObjectById("evoboard_step2");
+var passSailEventToFlash = function(sev) {
+    var flashMovie = swfobject.getObjectById("evoboard");
     flashMovie.sevToFlash(sev.eventType, sev.payload || {});
 };
-
-var passSailEventToFlash4rank = function(sev) {
-    var flashMovie = swfobject.getObjectById("evoboard_step4_rank");
-    flashMovie.sevToFlash(sev.eventType, sev.payload || {});
-};
-
-var passSailEventToFlash4rationale = function(sev) {
-    var flashMovie = swfobject.getObjectById("evoboard_step4_rationale");
-    flashMovie.sevToFlash(sev.eventType, sev.payload || {});
-};
-
 
 
 var EvoBoard = {
