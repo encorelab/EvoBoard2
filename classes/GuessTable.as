@@ -28,11 +28,14 @@ package classes
 						
 			var is_your_rainforest:String 
 			if( your_rainforest == true ){
+			//is_your_rainforest = your_rainforest;
+			
 			if( your_rainforest == "true" ){
 				is_your_rainforest = "Yes";
 			} else {
 				is_your_rainforest = "No";
 			}
+			
 			
 			var guessEntry:TableEntry = new TableEntry( group_num, rainforest_location, is_your_rainforest, explanation );
 			addChild( guessEntry );
