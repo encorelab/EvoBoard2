@@ -27,7 +27,6 @@ package classes
 			var group_num:String = group_code.substr(1);
 						
 			var is_your_rainforest:String 
-			if( your_rainforest == true ){
 			//is_your_rainforest = your_rainforest;
 			
 			if( your_rainforest == "true" ){
