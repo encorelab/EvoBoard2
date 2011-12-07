@@ -9,6 +9,8 @@
 
 ---
 
+
+//
 {"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":true},"second_organism":{"organism":"wasp","present":false}}}
 
 {"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_b","first_organism":{"organism":"monkey","present":true},"second_organism":{"organism":"wasp","present":false}}}
@@ -20,6 +22,8 @@
 ---
 …for testing, colin changed code so that the value of author is the value of group_code 
 - every thing showing as false
+{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A1", "author":"joe", "location":"rainforest_a", "your_rainforest":true, "explanation":"foo"}}
+
 {"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A1", "author":"joe", "location":"rainforest_a", "your_rainforest":true, "explanation":"foo"}}
 
 {"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_b", "your_rainforest":false, "explanation":"foo"}}
