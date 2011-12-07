@@ -9,6 +9,7 @@ package
 	import classes.RationaleTable;
 	
 	import flash.display.Sprite;
+	import flash.events.KeyboardEvent;
 	import flash.external.ExternalInterface;
 	import flash.text.TextField;
 	
@@ -42,16 +43,60 @@ package
 			
 			//for STEP2
 			guess_table = new GuessTable();
-			//addChild( guess_table );
+			addChild( guess_table );
 			
 			//for STEP4 ranking
 			rank_table = new RankTable();
-			//addChild( rank_table );
+			addChild( rank_table );
 			
 			//for STEP4 rationales
 			rationale_table = new RationaleTable();
-			//addChild( rationale_table );
+			addChild( rationale_table );
+			organism_vis.visible = false;
+			guess_table.visible = false;
+			rank_table.visible = false;
+			rationale_table.visible = false;
+			stage.addEventListener( KeyboardEvent.KEY_DOWN, reportKeyDown );
 		}
+		
+		private function reportKeyDown( event:KeyboardEvent ):void
+		{
+			//event_debug.appendText("Key Pressed: " + String.fromCharCode(event.charCode) + " (key code: " + event.keyCode + " character code: " + event.charCode + ")");
+			trace("Key Pressed: " + String.fromCharCode(event.charCode) + " (key code: " + event.keyCode + " character code: " + event.charCode + ")");
+			if (event.keyCode == 65){ //a
+				//step 1
+				setChildIndex( organism_vis, numChildren - 1 );
+				organism_vis.visible = true;
+				guess_table.visible = false;
+				rank_table.visible = false;
+				rationale_table.visible = false;
+				
+			} else if (event.keyCode == 83){//s
+				//step 2
+				setChildIndex( guess_table, numChildren - 1 );
+				organism_vis.visible = false;
+				guess_table.visible = true;
+				rank_table.visible = false;
+				rationale_table.visible = false;
+				
+			} else if (event.keyCode == 68){//d
+				//step 4 rank
+				setChildIndex( rank_table, numChildren - 1 );
+				organism_vis.visible = false;
+				guess_table.visible = false;
+				rank_table.visible = true;
+				rationale_table.visible = false;
+				
+			} else if ( event.keyCode == 70){//f
+				//step 4 rationale
+				setChildIndex( rationale_table, numChildren - 1 );
+				organism_vis.visible = false;
+				guess_table.visible = false;
+				rank_table.visible = false;
+				rationale_table.visible = true;
+			}	
+		}
+		
 		//{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}	
 		private function organism_present( eventData ):void 
 		{
