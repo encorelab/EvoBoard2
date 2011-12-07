@@ -28,6 +28,7 @@ package classes
 						
 			var is_your_rainforest:String 
 			if( your_rainforest == true ){
+			if( your_rainforest == "true" ){
 				is_your_rainforest = "Yes";
 			} else {
 				is_your_rainforest = "No";
