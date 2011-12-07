@@ -16,7 +16,7 @@ var EvoBoard = {
 	    organism_present: passSailEventToFlash,
 	    rainforest_guess_submitted: passSailEventToFlash,
 	    rankings_submitted: passSailEventToFlash,
-	    rationale_submitted: passSailEventToFlash, 
+	    rationale_submitted: passSailEventToFlash
         },
         
         initialized: function(ev) {

@@ -9,6 +9,7 @@ package
 	import classes.RationaleTable;
 	
 	import flash.display.Sprite;
+	import flash.events.KeyboardEvent;
 	import flash.external.ExternalInterface;
 	import flash.text.TextField;
 	
@@ -24,8 +25,8 @@ package
 				
 		public function EvoBoard()
 		{
-			event_debug = event_debug_txt;
-			event_debug.text = "Waiting for event...";			
+			//event_debug = event_debug_txt;
+			//event_debug.text = "Waiting for event...";			
 			ExternalInterface.addCallback("sevToFlash", handleSev);
 			
 			//for STEP1
@@ -34,21 +35,63 @@ package
 			
 			//for STEP2
 			guess_table = new GuessTable();
-			//addChild( guess_table );
+			addChild( guess_table );
 			
 			//for STEP4 ranking
 			rank_table = new RankTable();
-			//addChild( rank_table );
+			addChild( rank_table );
 			
 			//for STEP4 rationales
 			rationale_table = new RationaleTable();
-			//addChild( rationale_table );
+			addChild( rationale_table );
 			
+			organism_vis.visible = false;
+			guess_table.visible = false;
+			rank_table.visible = false;
+			rationale_table.visible = false;
+			
+			stage.addEventListener( KeyboardEvent.KEY_DOWN, reportKeyDown );
 		}		
+		
+		private function reportKeyDown( e:KeyboardEvent ):void
+		{
+			if (e.keyCode == 65){ //a
+				//step 1
+				setChildIndex( organism_vis, numChildren - 1 );
+				organism_vis.visible = true;
+				guess_table.visible = false;
+				rank_table.visible = false;
+				rationale_table.visible = false;
+				
+			} else if (e.keyCode == 83){//s
+				//step 2
+				setChildIndex( guess_table, numChildren - 1 );
+				organism_vis.visible = false;
+				guess_table.visible = true;
+				rank_table.visible = false;
+				rationale_table.visible = false;
+				
+			} else if (e.keyCode == 68){//d
+				//step 4 rank
+				setChildIndex( rank_table, numChildren - 1 );
+				organism_vis.visible = false;
+				guess_table.visible = false;
+				rank_table.visible = true;
+				rationale_table.visible = false;
+				
+			} else if ( e.keyCode == 70){//f
+				//step 4 rationale
+				setChildIndex( rationale_table, numChildren - 1 );
+				organism_vis.visible = false;
+				guess_table.visible = false;
+				rank_table.visible = false;
+				rationale_table.visible = true;
+			}
+		}
 		//{"eventType":"organism_present","payload":{"group_code":"A1","author":"joe","location":"rainforest_a","first_organism":{"organism":"monkey","present":"true"},"second_organism":{"organism":"wasp","present":"false"}}}	
 		private function organism_present( eventData ):void 
 		{
-			event_debug.text = eventData.author + " identified " + eventData.second_organism.organism + "'s prescence as " + eventData.second_organism.present ;
+			//event_debug.appendText("/n" + eventData.author + " identified " + eventData.second_organism.organism + "'s prescence as " + eventData.second_organism.present);
 			
 			if (eventData.first_organism.present == true){
 				//add new name	
@@ -63,26 +106,26 @@ package
 		//{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A1", "author":"joe", "location":"rainforest_a", "your_rainforest":"true", "explanation":"foo"}}
 		private function rainforest_guess_submitted( eventData ):void
 		{
-			event_debug.text = eventData.group_code + " group submitted a guess entry for " + eventData.location + ": " + eventData.your_rainforest;  
+			//event_debug.text = eventData.group_code + " group submitted a guess entry for " + eventData.location + ": " + eventData.your_rainforest;  
 			guess_table.addEntry( eventData.group_code, eventData.location, eventData.your_rainforest, eventData.explanation );
 		}
 		//{"eventType":"rankings_submitted", "payload":{"group_code":"A1", "author":"joe", "ranks":{"rainforest_a":"2", "rainforest_b":"4", "rainforest_a":"2", "rainforest_c":"1", "rainforest_d":"3"}}}
 		private function rankings_submitted( eventData ):void
 		{
-			event_debug.text = eventData.group_code + " group submitted a ranking entry: A = " + eventData.ranks.rainforest_a;  
+			//event_debug.text = eventData.group_code + " group submitted a ranking entry: A = " + eventData.ranks.rainforest_a;  
 			rank_table.addEntry( eventData.group_code, eventData.author, eventData.ranks.rainforest_a, eventData.ranks.rainforest_b, eventData.ranks.rainforest_c, eventData.ranks.rainforest_d);
 		}
 		//{"eventType":"rationale_submitted", "payload":{"group_code":"A1", "author":"jane", "question":"strategy", "answer":"foo"}}
 		private function rationale_submitted( eventData ):void
 		{
-			event_debug.text = eventData.author + " from group " + eventData.group_code + " submitted a rationale entry for " + eventData.question;  
+			//event_debug.text = eventData.author + " from group " + eventData.group_code + " submitted a rationale entry for " + eventData.question;  
 			rationale_table.addEntry( eventData.group_code, eventData.author, eventData.question, eventData.answer );
 		}
 		private function handleSev(eventType, eventData):void 
 		{
 			trace(eventType);
 			trace(eventData);
-			event_debug.text = "handleSev";
+			//event_debug.text = "handleSev";
 			
 			switch(eventType) {
 				// add handlers for events here (one for each type of event)
@@ -105,12 +148,12 @@ package
 		//EXAMPLE 1: CAN BE ERASED
 		private function student_submitted_data(eventData) {
 			// eventData is an object with arbitrary properties (Armin/Colin will define these)
-			event_debug.text = "Got 'student_submited_data'; foo is " + eventData.foo;
+			//event_debug.text = "Got 'student_submited_data'; foo is " + eventData.foo;
 		}
 		//EXAMPLE 2: CAN BE ERASED
 		private function some_other_event(eventData) {
 			// eventData is an object with arbitrary properties (Armin/Colin will define these)
-			event_debug.text = "Got 'some_other_event'; blah_blah is " + eventData.blah_blah + " and poop is " + eventData.poop;
+			//event_debug.text = "Got 'some_other_event'; blah_blah is " + eventData.blah_blah + " and poop is " + eventData.poop;
 		}
 	}
 }
