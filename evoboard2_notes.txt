@@ -28,7 +28,7 @@
 
 {"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_b", "your_rainforest":false, "explanation":"foo"}}
 
-{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A2", "author":"joe", "location":"rainforest_c", "your_rainforest":false, "explanation":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum."}}
+{"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A4", "author":"joe", "location":"rainforest_d", "your_rainforest":false, "explanation":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum. Suspendisse ornare tincidunt commodo. Nullam ornare tincidunt neque vestibulum rutrum."}}
 
 {"eventType":"rainforest_guess_submitted", "payload":{"group_code":"A4", "author":"joe", "location":"rainforest_d", "your_rainforest":true, "explanation":"foo"}}
 

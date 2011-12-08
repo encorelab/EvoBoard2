@@ -65,6 +65,10 @@ package classes
 			closeButton = new CloseButton( explanationGraphic.width, 0 );
 			explanationObject.addChild( closeButton );
 			closeButton.addEventListener(CustomEvent.CLOSE, closeBtnHandler);
+			
+			explanationObject.addEventListener(MouseEvent.MOUSE_DOWN, clickHandler);
+			explanationObject.addEventListener(MouseEvent.MOUSE_UP, mouseupHandler);
+			
 		}
 		private function closeBtnHandler(e:CustomEvent):void
 		{
@@ -117,6 +121,14 @@ package classes
 				default:
 					trace("Unrecognized group received: "+ group);
 			}		
+		}
+		private function clickHandler( e:MouseEvent ):void
+		{
+			explanationObject.startDrag();
+		}
+		private function mouseupHandler( e:MouseEvent ):void
+		{
+			explanationObject.stopDrag();
 		}
 	}
 }

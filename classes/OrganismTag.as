@@ -34,8 +34,17 @@ package classes
 			tagGraphic.organism_txt.text = organismName;
 			tagGraphic.author_txt.text = authorName;
 			tagGraphic.organism_txt.width = tagGraphic.organism_txt.textWidth + 4;
-			tagGraphic.author_txt.width = tagGraphic.organism_txt.textWidth + 4;
-			tagGraphic.bkgd.width = tagGraphic.organism_txt.width + 20;
+			tagGraphic.author_txt.width = tagGraphic.author_txt.textWidth + 4;
+			
+			//find out whether organism TF or author TF is wider
+			var longTFwidth:Number;
+			if ( tagGraphic.organism_txt.textWidth > tagGraphic.author_txt.textWidth ){
+				longTFwidth = tagGraphic.organism_txt.width   	
+			} else {
+				longTFwidth = tagGraphic.author_txt.width
+			}
+			
+			tagGraphic.bkgd.width = longTFwidth + 20;
 			tagGraphic.bkgd.alpha = 0.8;
 			addChild( tagGraphic );
 		}

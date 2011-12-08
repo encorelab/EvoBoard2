@@ -18,6 +18,7 @@ package
 		private var screen_height:Number = 768;
 		private var screen_width:Number = 1024;
 		private var event_debug:TextField;
+		private var version_num:TextField;
 		private var organism_vis:OrganismVis;
 		private var guess_table:GuessTable;
 		private var rank_table:RankTable;
@@ -26,7 +27,9 @@ package
 		public function EvoBoard()
 		{
 			//event_debug = event_debug_txt;
-			//event_debug.text = "Waiting for event...";			
+			//event_debug.text = "Waiting for event...";		
+			version_num = versionNum_txt;
+			version_num.text = "";
 			ExternalInterface.addCallback("sevToFlash", handleSev);
 			
 			//for STEP1
@@ -92,7 +95,6 @@ package
 		private function organism_present( eventData ):void 
 		{
 			//event_debug.appendText("/n" + eventData.author + " identified " + eventData.second_organism.organism + "'s prescence as " + eventData.second_organism.present);
-			
 			if (eventData.first_organism.present == true){
 				//add new name	
 				organism_vis.addTag(eventData.first_organism.organism , eventData.author, eventData.location);
